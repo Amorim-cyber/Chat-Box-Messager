@@ -10,7 +10,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					new MainFrame(true);
+					new MainFrame(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
