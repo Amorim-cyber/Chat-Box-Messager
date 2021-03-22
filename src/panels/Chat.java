@@ -131,6 +131,7 @@ public class Chat extends JPanel {
 				textAreaChat.setText(textAreaChat.getText()+login.getUserName()+"\t"+dtf.format(now)+"\n\n>> "+textAreaMgs.getText()+
 						"\n\n");
 				textAreaMgs.setText("");
+				chat.setTxt(textAreaChat.getText());
 				chat.save(textAreaChat.getText());
 				
 	        }
@@ -152,7 +153,7 @@ public class Chat extends JPanel {
 		textAreaChat.setEditable(false);
 		textAreaChat.setFont(new Font("Cambria", Font.PLAIN, 25));
 		textAreaChat.setLineWrap(true);
-		textAreaChat.setText(chat.getTxt());
+		textAreaChat.setText(chat.getChat());
 		textAreaChat.setWrapStyleWord(true);
 		scrollPaneChat.setViewportView(textAreaChat);
 	    
@@ -201,6 +202,7 @@ public class Chat extends JPanel {
 				textAreaChat.setText(textAreaChat.getText()+login.getUserName()+"\t"+dtf.format(now)+"\n\n>> "+textAreaMgs.getText()+
 						"\n\n");
 				textAreaMgs.setText("");
+				chat.setTxt(textAreaChat.getText());
 				chat.save(textAreaChat.getText());
 				
 			}
@@ -367,14 +369,15 @@ public class Chat extends JPanel {
 		Timer t = new Timer();
 	    t.schedule(new TimerTask() {
 	        @Override public void run() {
-	        	textAreaChat.setText(chat.getTxt());
+	        	textAreaChat.setText(chat.getChat());
 	        	
 	        	if(!frame.isFocus() &&!textAreaChat.getText().equals(chat.getTxt())) {
 	        		notification(frame);
 	        	}
 	        	else {
+	        		chat.setTxt(textAreaChat.getText());
 	        		chat.save(textAreaChat.getText());
-	        		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") +"\\imagens\\logo\\Logo.png"));
+	        		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") +"\\src\\images\\logo\\Logo.png"));
 	        		flash = true;
 	        	}	
 	        }
@@ -410,10 +413,10 @@ public class Chat extends JPanel {
 	
 	public void notification(MainFrame frame) {
 		if(flash) {
-			frame.setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") +"\\imagens\\logo\\Logo.png"));
+			frame.setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") +"\\src\\images\\logo\\Logo.png"));
 			flash = false;
 		}else {
-			frame.setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") +"\\imagens\\logo\\Logo2.png"));
+			frame.setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") +"\\src\\images\\logo\\Logo2.png"));
 			flash = true;
 		}
 		

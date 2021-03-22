@@ -29,6 +29,8 @@ public class Chat {
 				e.printStackTrace();
 			}
 		}
+		
+		txt = read(path);
 			
 	}
 	
@@ -66,10 +68,19 @@ public class Chat {
 	public void save(String txt) {
 		write(path,txt);
 	}
+	
+	
 
 	public String getTxt() {
-		txt = read(path);
 		return txt;
+	}
+
+	public void setTxt(String txt) {
+		this.txt = txt;
+	}
+
+	public String getChat() {
+		return read(path);
 	}
 
 	public boolean isInvalid() {

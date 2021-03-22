@@ -73,10 +73,10 @@ public class Login {
 					allEqual = userName.equals(el[0]) && login.equals(el[1]) && password.equals(el[2]);
 				else {
 					allEqual = login.equals(el[1]) && password.equals(el[2]);
-					userName = el[0];
 				}
 					
 				if(allEqual) {
+					userName = el[0];
 					exist = true;
 				}else {
 					if(i==0)
